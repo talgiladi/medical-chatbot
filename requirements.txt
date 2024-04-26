@@ -5,4 +5,5 @@ langchain==0.0.225
 flask
 load_dotenv
 pypdf
+langchain-pinecone
 -e .
