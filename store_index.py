@@ -20,7 +20,7 @@ embeddings = download_hugging_face_embeddings()
 #prepare the vector store -new or existing
 docsearch = None
 index_name = "medical-chatbot2"
-has_existing_index = True
+has_existing_index = False
 if (has_existing_index):
     #the vector store already has the data
     docsearch = PineconeVectorStore.from_existing_index(

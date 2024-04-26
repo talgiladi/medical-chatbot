@@ -22,3 +22,15 @@ def download_hugging_face_embeddings():
         model_name = "sentence-transformers/all-MiniLM-L6-v2"
     )
     return embeddings
+
+def create_context(docsearch, query: str):
+    retriever = docsearch.as_retriever()
+    matched_docs = docsearch.similarity_search(query=  query, k = 3)
+
+    #combine them
+    context = ""
+    for i, d in enumerate(matched_docs):
+        context = context + (f"\n## Document {i}\n")
+        context = context + (d.page_content)
+
+    return context
